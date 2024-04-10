@@ -69,8 +69,15 @@ Cucumber supports data tables in feature files to provide multiple sets of data 
 definitions can access this data using libraries like DataTable.
 
 13. What are hooks in Cucumber, and how are they used?
-Hooks are methods that run before or after scenarios (or entire features) for setup/teardown or logging
+1. Hooks are methods that run before or after scenarios (or entire features) for setup/teardown or logging
 purposes.
+2. Not part of the feature file.
+3. Can be written in step definition class or can be written in a separate configuration file.
+4. We have below annotations used as Hooks,
+    1. @Before - Before each scenario
+    2. @After - After each scenario
+    3. @BeforeStep - Before each step of the scenario
+    4. @AfterStep - After each step of the scenario
 
 14. How do you handle errors and exceptions in Cucumber tests?
 Java exception handling mechanisms can be used within step definitions. Assertions from libraries like

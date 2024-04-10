@@ -3,6 +3,10 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.datatable.DataTable;
+
+import java.util.List;
+import java.util.Map;
 
 public class TestSteps {
 
@@ -79,6 +83,55 @@ public class TestSteps {
     @When("student enter the password {string}")
     public void student_enter_the_password(String password) {
         System.out.println("Student enter the password " + password);
+    }
+
+    @Given("customer is on user registration page")
+    public void customer_is_on_user_registration_page() {
+        System.out.println("Customer landed on the user registration page");
+    }
+
+    @When("customer enters the following details")
+    public void customer_enters_the_following_details(DataTable dataTable) {
+        List<List<String>> userData = dataTable.asLists(String.class);
+        for (List<String> user : userData) {
+            System.out.println(user);
+        }
+    }
+
+    @Then("customer registration should be successful")
+    public void customer_registration_should_be_successful() {
+        System.out.println("Customer registration is Successful");
+    }
+
+    @When("customer enters the following details with headers")
+    public void customer_enters_the_following_details_with_headers(DataTable dataTable) {
+        List<Map<String, String>> userDataMap = dataTable.asMaps(String.class, String.class);
+        userDataMap.forEach(System.out::println);
+    }
+
+    @Given("Shopping application have search bar")
+    public void shopping_application_have_search_bar() {
+        System.out.println("Login to online shopping platform and on search bar");
+    }
+
+    @When("User search for a product {string} with price {int}")
+    public void user_search_for_a_product_with_price(String product, Integer price) {
+        System.out.println("User search for product" + product + " with " + price + " on the online shopping platform");
+    }
+
+    @Then("Product with title {string} should be displayed")
+    public void product_with_title_should_be_displayed(String title) {
+        System.out.println("Search product with title " + title + " is displayed");
+    }
+
+    @Then("Product should be added to cart and checkout")
+    public void product_should_be_added_to_cart_and_checkout() {
+        System.out.println("Product should be added to the cart and checked out");
+    }
+
+    @Then("Order Id is {int} and username is {string}")
+    public void order_id_is_and_username_is(Integer orderId, String username) {
+        System.out.println("Product is placed with order id " + orderId + " and username " + username);
     }
 
 }
