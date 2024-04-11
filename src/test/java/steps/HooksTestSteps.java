@@ -5,6 +5,11 @@ import io.cucumber.messages.types.Tag;
 
 public class HooksTestSteps {
 
+    /*
+      ====================
+      Using simple Hooks
+      ====================
+    */
 //    @Before
 //    public void setup() {
 //        System.out.println("Open the browser");
@@ -15,16 +20,26 @@ public class HooksTestSteps {
 //        System.out.println("Close the browser");
 //    }
 
-    @Before("@smoke")
-    public void setup() {
-        System.out.println("Open the browser");
-    }
+    /*
+      ===============================
+      Using Hooks with specific Tag
+      ===============================
+    */
+//    @Before("@smoke")
+//    public void setup() {
+//        System.out.println("Open the browser");
+//    }
+//
+//    @After("@smoke")
+//    public void tearDown() {
+//        System.out.println("Close the browser");
+//    }
 
-    @After("@smoke")
-    public void tearDown() {
-        System.out.println("Close the browser");
-    }
-
+    /*
+      ==========================================
+      Using Hooks with Order and Scenario Param
+      ==========================================
+    */
 //    @Before(order = 1)
 //    public void setupBrowser(Scenario scenario) {
 //        System.out.println("Open the browser");
@@ -47,6 +62,11 @@ public class HooksTestSteps {
 //        System.out.println("Logout from the online shopping platform");
 //    }
 
+    /*
+       =================================
+       Using Before & After Steps Hooks
+       =================================
+    */
     @BeforeStep
     public void takeScreenShot() {
         System.out.println("Before Step Demo");
@@ -56,6 +76,5 @@ public class HooksTestSteps {
     public void refreshPage() {
         System.out.println("After Step Demo");
     }
-
 
 }

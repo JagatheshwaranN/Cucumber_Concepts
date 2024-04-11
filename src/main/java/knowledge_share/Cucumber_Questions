@@ -68,19 +68,107 @@ Common keywords include:
 Cucumber supports data tables in feature files to provide multiple sets of data for a scenario. Step
 definitions can access this data using libraries like DataTable.
 
-13. What are hooks in Cucumber, and how are they used?
+13. How do you handle errors and exceptions in Cucumber tests?
+Java exception handling mechanisms can be used within step definitions. Assertions from libraries like
+JUnit can verify expected behavior.
+
+14. What are hooks in Cucumber, and how are they used?
+Hooks in Cucumber are special methods or blocks of code that run before or after certain events in the
+execution of Cucumber scenarios. They allow you to perform setup and teardown tasks, such as initializing
+data or closing resources.
+
 1. Hooks are methods that run before or after scenarios (or entire features) for setup/teardown or logging
 purposes.
 2. Not part of the feature file.
 3. Can be written in step definition class or can be written in a separate configuration file.
-4. We have below annotations used as Hooks,
-    1. @Before - Before each scenario
-    2. @After - After each scenario
-    3. @BeforeStep - Before each step of the scenario
-    4. @AfterStep - After each step of the scenario
 
-14. How do you handle errors and exceptions in Cucumber tests?
-Java exception handling mechanisms can be used within step definitions. Assertions from libraries like
-JUnit can verify expected behavior.
+15. How many types of hooks are there in Cucumber?
+There are four types of hooks in Cucumber:
+1. @Before - Before each scenario
+2. @After - After each scenario
+3. @BeforeStep - Before each step of the scenario
+4. @AfterStep - After each step of the scenario
+
+16. What is the purpose of using @BeforeStep and @AfterStep hooks?
+@BeforeStep and @AfterStep hooks allow you to execute setup and teardown tasks before and after each step
+in a scenario. This can be useful for actions such as logging, capturing screenshots, or setting up context
+for individual steps.
+
+17. How do you prioritize hooks in Cucumber?
+Hooks can be prioritized using the order attribute. By default, hooks are executed in the order they are
+defined, but you can specify a numerical value to control the execution order.
+
+18. What are the benefits of using Hooks?
+1. Improved Code Readability: Separating setup and cleanup logic from test steps makes the code cleaner and
+easier to understand.
+2. Reduced Redundancy: Common setup and cleanup tasks can be defined in hooks, avoiding repetitive code across
+scenarios.
+3. Better Test Organization: Hooks help structure your tests by separating concerns and promoting modularity.
+
+19. What the are 2 types of expressions supported in Cucumber?
+1. Regular Expression
+2. Cucumber Expression
+
+Rules for using Expressions:
+============================
+1. Step def file will be generating the Cucumber Expression by default.
+2. We can also use Regular Expression in Step def file.
+3. Both Cucumber and Regular Expressions can't be used in single method of Step def file.
+
+20. Regular Expression Quantifiers and examples?
+([0-9]) -> Digits between 0 to 9
+Quantifiers - It defines how many times a character should appear.
+===========
++
+*
+?
+{n}
+
+([0-9]+)   -> 0 to 9 digits (One or more)
+([0-9]{4}) -> 0000, 9999, 1212, 1234, 5678
+([0-9]*)   -> 0 to 9 digits (Zero or more)
+([0-9]?)   -> 0 to 9 digits (Zero or once)
+
+21. How do you access DataTable values in step definitions?
+In Java, DataTable values are accessed using the DataTable class. You can retrieve the data as a
+list of lists or as a list of maps, depending on your preference.
+
+22. What is the difference between a list of lists and a list of maps when accessing DataTable values?
+A list of lists represents the DataTable as rows and columns, where each row is represented as a list
+of strings. A list of maps represents the DataTable as a list of dictionaries, where each row is
+represented as a map with column names as keys and cell values as values.
+
+23. How do you convert a DataTable into a list of lists in Cucumber?
+In Java, you can convert a DataTable into a list of lists using the asList() method:
+List<List<String>> data = dataTable.asLists();
+
+24. When would you use DataTables in Cucumber scenarios?
+DataTables are useful when you need to test scenarios with multiple input combinations or when you
+want to provide structured input data directly within the feature files. They are commonly used in
+scenarios involving data-driven testing or parameterization.
+
+25. Can you provide an example of using DataTables for parameterization in Cucumber?
+Scenario Outline: Login with different credentials
+  Given I am on the login page
+  When I enter the following username and password
+    | Username | Password |
+    | <username> | <password> |
+  And I click the login button
+  Then I should be logged in successfully
+
+  Examples:
+    | username | password |
+    | user1    | pass1    |
+    | user2    | pass2    |
+
+26. How do you handle dynamic DataTables with varying column lengths in Cucumber?
+You can use scenario outlines with Examples tables to handle dynamic DataTables with varying column
+lengths. Each row in the Examples table represents a different set of data, allowing you to handle
+different DataTable structures dynamically.
+
+27. Are DataTables mutable in Cucumber?
+No, DataTables are immutable by default in Cucumber. Once created, the data in a DataTable cannot be
+modified. However, you can create modified copies of DataTables using methods like withColumnTitles()
+or transpose(), which return new DataTable instances with the desired modifications.
 
 

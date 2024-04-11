@@ -134,4 +134,9 @@ public class TestSteps {
         System.out.println("Product is placed with order id " + orderId + " and username " + username);
     }
 
+    @When("^User search for a mobile \"([^\"]+)\" with price (\\d+)$")
+    public void user_search_for_a_mobile_with_price(String product, Integer price) {
+        System.out.println("User search for mobile " + product + " with " + price + " on the online shopping platform");
+    }
+
 }
