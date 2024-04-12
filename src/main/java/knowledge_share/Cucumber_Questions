@@ -63,6 +63,7 @@ Common keywords include:
 4. When: Describes the action taken by the user.
 5. Then: Describes the expected outcome after the action.
 6. And: Combines multiple steps within a scenario.
+7. But: Combines multiple steps within a scenario but represents negative statements.
 
 12. How do you handle data-driven testing with Cucumber?
 Cucumber supports data tables in feature files to provide multiple sets of data for a scenario. Step
@@ -168,7 +169,64 @@ different DataTable structures dynamically.
 
 27. Are DataTables mutable in Cucumber?
 No, DataTables are immutable by default in Cucumber. Once created, the data in a DataTable cannot be
-modified. However, you can create modified copies of DataTables using methods like withColumnTitles()
-or transpose(), which return new DataTable instances with the desired modifications.
+modified.
 
+28. What is BDD Approach?
+Software Example
+================
+Imagine you're creating a shopping cart system on a website. Traditionally, developers might just code
+based on a vague description. But with BDD:
 
+Story time: Everyone involved gets together (developers, designers, someone representing the customers).
+They discuss a user story, like "As a customer, I want to add items to my cart so I can buy them later."
+
+Examples speak louder: They break down the story into specific examples. "If I add a shirt to my cart,
+the quantity should be 1. If I add another shirt, the quantity should be 2." These examples become like
+mini-tests for the developers.
+
+Shared language: They use plain language to describe these examples, focusing on what the user sees and
+does ("When I click 'Add to Cart'...", "Then I should see '1 item in your cart'").
+
+Building with a guide: Developers use these clear examples as a guide to write the code. They can even
+automate these examples as tests, so they know if the code works as expected.
+
+Here's the key: BDD focuses on the behavior the system should have, from the user's perspective. It's
+about clear communication and making sure everyone is on the same page before any coding starts. This
+helps avoid building features that miss the mark.
+
+Food Example
+============
+Imagine you're baking a cake. Before you start mixing ingredients or preheating the oven, you think
+about how you want the cake to taste and look. You might want it to be moist, chocolatey, and have a
+nice, fluffy texture. You also want it to look beautiful when it comes out of the oven, with smooth
+frosting and maybe some decorations on top.
+
+Now, think of BDD as a similar process, but for building software instead of baking a cake. Before
+writing any code, you think about how you want your software to behave. You describe its behavior in
+simple terms, just like you'd describe the taste and appearance of your cake.
+
+For example, if you're building a website, you might say, "When a user clicks on the 'Sign Up' button,
+they should be taken to a registration page." That's like describing how you want a certain part of
+your software to work.
+
+Once you have these descriptions, you use them as a guide for writing your code. You make sure your
+code makes the software behave the way you described. And just like baking a cake, you keep refining
+and testing until you get it just right.
+
+So, BDD is all about starting with clear descriptions of how you want your software to behave, and
+then building it to match those descriptions. It's a way to make sure your software does what it's
+supposed to do, and it involves everyone in the process, not just the developers.
+
+29. Is BDD is a test automation framework?
+BDD is a process or approach rather than a specific test automation framework. BDD is a collaborative
+approach to software development that emphasizes clear communication between developers, testers, and
+stakeholders. It focuses on defining the desired behavior of the software from the user's perspective,
+before any coding begins.
+
+However, there are frameworks and tools that support the BDD process by providing features to write,
+manage, and automate tests based on the behavior-driven principles.
+
+One popular framework for implementing BDD is Cucumber, which allows you to write tests in a human-
+readable format called Gherkin. Gherkin uses keywords like "Given," "When," and "Then" to describe the
+behavior of the software in a structured way. These descriptions can then be automated using programming
+languages like Java, Ruby, or JavaScript, depending on the specific implementation.
