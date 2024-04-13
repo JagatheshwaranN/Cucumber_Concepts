@@ -144,7 +144,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.version}</version>
@@ -153,11 +153,11 @@
                         <include>**/ParallelRun.java</include>
                     </includes>
                     <parallel>methods</parallel>
-                    <!--<threadCount>4</threadCount>-->
+                    &lt;!&ndash;<threadCount>4</threadCount>&ndash;&gt;
                     <useUnlimitedThreads>false</useUnlimitedThreads>
                 </configuration>
-            </plugin>
-            <!--<plugin>
+            </plugin>-->
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>3.2.5</version>
@@ -167,30 +167,30 @@
                             <goal>integration-test</goal>
                         </goals>
                         <configuration>
-                          &lt;!&ndash;UNCOMMENT - To add any exclusions if required
+                          <!--UNCOMMENT - To add any exclusions if required
                             <excludes>
                                 <exclude>**/*IT*.java</exclude>
-                            </excludes>&ndash;&gt;
+                            </excludes>-->
                             <includes>
-                                &lt;!&ndash;UNCOMMENT BELOW LINE
-                                - To execute feature files with a single runner&ndash;&gt;
-                                <include>**/ParallelRunJunitTest.java</include>
-                                &lt;!&ndash;UNCOMMENT BELOW LINE - To execute feature files with multiple runners&ndash;&gt;
-                                &lt;!&ndash;<include>**/*Runner.java</include>&ndash;&gt;
+                                <!--UNCOMMENT BELOW LINE
+                                - To execute feature files with a single runner-->
+                                <include>src/test/java/junit/parallel/ParallelRunJunitTest.java</include>
+                                <!--UNCOMMENT BELOW LINE - To execute feature files with multiple runners-->
+                                <!--<include>**/*Runner.java</include>-->
                             </includes>
-                            &lt;!&ndash;UNCOMMENT BELOW 3 LINES - To execute using parallel or combination option&ndash;&gt;
+                            <!--UNCOMMENT BELOW 3 LINES - To execute using parallel or combination option-->
                             <parallel>methods</parallel>
                             <threadCount>4</threadCount>
                             <perCoreThreadCount>true</perCoreThreadCount>
-                          &lt;!&ndash;UNCOMMENT BELOW 3 LINES - To execute using forking or combination option
+                          <!--UNCOMMENT BELOW 3 LINES - To execute using forking or combination option
                           <forkCount>2</forkCount>
                           <reuseForks>true</reuseForks>
                           <reportsDirectory>${project.build.directory}/failsafe-reports_${surefire.forkNumber}
-                          </reportsDirectory>&ndash;&gt;
+                          </reportsDirectory>-->
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 </project>
