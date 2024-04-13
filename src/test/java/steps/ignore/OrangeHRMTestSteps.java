@@ -1,4 +1,4 @@
-package steps.parallel;
+package steps.ignore;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

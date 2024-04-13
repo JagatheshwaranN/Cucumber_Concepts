@@ -1,4 +1,4 @@
-package steps.parallel;
+package steps.ignore;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
