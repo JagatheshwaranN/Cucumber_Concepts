@@ -230,3 +230,36 @@ One popular framework for implementing BDD is Cucumber, which allows you to writ
 readable format called Gherkin. Gherkin uses keywords like "Given," "When," and "Then" to describe the
 behavior of the software in a structured way. These descriptions can then be automated using programming
 languages like Java, Ruby, or JavaScript, depending on the specific implementation.
+
+30. What is the purpose of the features attribute in @CucumberOptions?
+The features attribute specifies the location of the feature files that contain the Gherkin syntax
+defining the behavior of the application.
+
+31. Explain the significance of the tags attribute in @CucumberOptions.
+The tags attribute allows you to specify which scenarios to include or exclude during test execution
+based on the tags assigned to them in the feature files. In this case, @hooksTagDemo specifies that
+only scenarios tagged with @hooksTagDemo will be executed.
+
+32. What does the glue attribute represent in @CucumberOptions?
+The glue attribute specifies the package where the step definitions are located. Cucumber uses this
+information to locate the step definitions corresponding to the steps defined in the feature files.
+
+33. Describe the purpose of the plugin attribute in @CucumberOptions.
+The plugin attribute allows you to specify the different types of reports or formats in which you want
+to generate the test results. In this example, it includes the pretty format for console output, JSON
+and JUnit formats for report files, and an extent report adapter for generating Extent reports.
+
+34. What does the publish attribute do in @CucumberOptions?
+The publish attribute specifies whether to publish the generated reports to a server or location
+specified in the configuration. In this case, publish = true indicates that the reports will be
+published.
+
+35. Explain the significance of the monochrome attribute in @CucumberOptions.
+The monochrome attribute determines whether the console output should be displayed in a monochrome
+format (without colors) or in a colored format. Setting monochrome = true ensures that the console
+output is easier to read by removing colors.
+
+36. What is the purpose of the strict attribute in @CucumberOptions?
+The strict attribute specifies whether to treat undefined and pending steps as errors. When
+strict = true, any undefined or pending steps will cause the test execution to fail, ensuring
+that all steps are properly implemented.
