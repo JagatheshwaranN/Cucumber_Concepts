@@ -67,14 +67,13 @@ public class HooksTestSteps {
        Using Before & After Steps Hooks
        =================================
     */
-    @BeforeStep
-    public void takeScreenShot() {
-        System.out.println("Before Step Demo");
-    }
-
-    @AfterStep
-    public void refreshPage() {
-        System.out.println("After Step Demo");
-    }
-
+//    @BeforeStep
+//    public void takeScreenShot() {
+//        System.out.println("Before Step Demo");
+//    }
+//
+//    @AfterStep
+//    public void refreshPage() {
+//        System.out.println("After Step Demo");
+//    }
 }
