@@ -19,7 +19,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
-public class ExtentReportTestSteps {
+public class AdvancedTestSteps {
 
     private WebDriver driver;
 
@@ -89,7 +89,13 @@ public class ExtentReportTestSteps {
     @Given("User is on contact us page")
     public void user_is_on_contact_us_page() {
         driver.get("http://www.automationpractice.pl/index.php?controller=contact");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
+
     @When("User fills the message from the sheet {string} with row number {string}")
     public void user_fills_the_message_from_the_sheet_with_row_number_row_num(String sheetName, String rowNum) throws IOException, InvalidFormatException {
         ExcelReader excelReader = new ExcelReader();
@@ -101,10 +107,12 @@ public class ExtentReportTestSteps {
         String message = testData.get(rowNumber).get("Message");
         contactUsMessageFill(subject, email, order, message);
     }
+
     @When("User clicks send button")
     public void user_clicks_send_button() {
         driver.findElement(By.id("submitMessage")).click();
     }
+
     @Then("success message {string} should display")
     public void success_message_should_display(String expectedMessage) {
         String actualMessage = driver.findElement(By.xpath("//p[@class='alert alert-success']")).getText();
@@ -123,4 +131,16 @@ public class ExtentReportTestSteps {
         message.sendKeys(msg);
     }
 
+    @When("User fills the message with details {string} {string} {string} and {string}")
+    public void user_fills_the_message_with_details_and(String subject, String email, String order, String msg) {
+        WebElement dropDown = driver.findElement(By.id("id_contact"));
+        WebElement emailId = driver.findElement(By.id("email"));
+        WebElement orderId = driver.findElement(By.id("id_order"));
+        Select select = new Select(dropDown);
+        select.selectByVisibleText(subject);
+        emailId.sendKeys(email);
+        orderId.sendKeys(order);
+        WebElement message = driver.findElement(By.id("message1"));
+        message.sendKeys(msg);
+    }
 }

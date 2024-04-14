@@ -263,3 +263,27 @@ output is easier to read by removing colors.
 The strict attribute specifies whether to treat undefined and pending steps as errors. When
 strict = true, any undefined or pending steps will cause the test execution to fail, ensuring
 that all steps are properly implemented.
+
+37. How can you rerun only the failed scenarios in Cucumber?
+In Cucumber, you can rerun only the failed scenarios by using plugins like rerun or by implementing
+a custom solution. The rerun plugin generates a .txt file containing the paths of the failed scenarios.
+You can then run Cucumber again using this file to rerun only the failed scenarios.
+
+38. Can you explain how the rerun plugin works in Cucumber?
+The rerun plugin in Cucumber generates a .txt file that contains the paths of the failed scenarios.
+After the initial test run, if there are any failed scenarios, the plugin creates this file. You can
+then pass this file as input to another test run to rerun only the failed scenarios, thereby speeding
+up the debugging process.
+
+1. Configure your Cucumber runner to utilize the rerun plugin. This plugin generates a file named
+rerun.txt in the target directory after test execution. This file contains information about
+the failed scenarios, including their line numbers.
+2. Create a separate runner class specifically for rerunning failed scenarios.
+3. In this runner class, point the features property to the rerun.txt file using the @ symbol before
+the path.
+4. Run this separate runner class to execute only the scenarios listed in the rerun.txt file.
+
+39. What are the ways to rerun failed scenarios in Cucumber?
+When we use TestNG for execution, then we have 2 ways to run the Cucumber failed scenarios.
+1. Use of rerun plugin from Cucumber
+2. Use of testng-failed.xml file from TestNG
