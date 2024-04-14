@@ -64,6 +64,12 @@ Common keywords include:
 5. Then: Describes the expected outcome after the action.
 6. And: Combines multiple steps within a scenario.
 7. But: Combines multiple steps within a scenario but represents negative statements.
+8. Scenario Outline: Describes a specific user behavior within a feature with data driven testing
+9. * : Wild card keyword used in place of Given, When and Then
+Optional:
+10. Description: Description about the scenario
+11. #comment: To provide the comments about the code
+
 
 12. How do you handle data-driven testing with Cucumber?
 Cucumber supports data tables in feature files to provide multiple sets of data for a scenario. Step
