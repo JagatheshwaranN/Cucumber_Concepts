@@ -23,17 +23,17 @@ public class AdvancedTestSteps {
 
     private WebDriver driver;
 
-    @Before
-    public void setup() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
-
-    @After
-    public void tearDown() {
-        driver.quit();
-    }
+//    @Before
+//    public void setup() {
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//    }
+//
+//    @After
+//    public void tearDown() {
+//        driver.quit();
+//    }
 
 
     @Given("User on Orange HRM login page")

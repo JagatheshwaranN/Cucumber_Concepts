@@ -287,3 +287,20 @@ the path.
 When we use TestNG for execution, then we have 2 ways to run the Cucumber failed scenarios.
 1. Use of rerun plugin from Cucumber
 2. Use of testng-failed.xml file from TestNG
+
+40. How would you skip scenarios using tags in Cucumber?
+To skip scenarios using tags, you can tag the scenarios that you want to skip and then provide a tag
+expression to exclude those tags during execution. For example, if you have scenarios tagged with @skip,
+you can exclude them by providing the tag expression not @skip to the Cucumber runner.
+
+41. Besides tags, are there other ways to skip scenarios in Cucumber?
+Yes, you can also skip scenarios programmatically within your hooks. You can use conditional logic to
+determine whether a scenario should be executed based on certain conditions, and if not, you can skip
+it using Cucumber's Scenario object.
+
+In Hook Steps File,
+@Before(value = "@skipScenario", order = 0)
+public void skipScenarioExecution(Scenario scenario){
+    System.out.println("Skipped Scenario : " + scenario.getName());
+    Assume.assumeTrue(false);
+}

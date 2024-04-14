@@ -2,6 +2,7 @@ package steps;
 
 import io.cucumber.java.*;
 import io.cucumber.messages.types.Tag;
+import org.junit.Assume;
 
 public class HooksTestSteps {
 
@@ -76,4 +77,16 @@ public class HooksTestSteps {
 //    public void refreshPage() {
 //        System.out.println("After Step Demo");
 //    }
+
+    /*
+      ========================================================
+      Using Hooks with specific Tag to skip scenario execution
+      ========================================================
+    */
+    @Before(value = "@skipScenario", order = 0)
+    public void setup(Scenario scenario) {
+        System.out.println("Skipped Scenario : " + scenario.getName());
+        Assume.assumeTrue(false);
+    }
+
 }
